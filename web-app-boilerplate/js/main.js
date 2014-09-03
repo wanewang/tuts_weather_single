@@ -30,9 +30,15 @@ require.config({
 });
 
 require([
-  'backbone'
-  ], function (Backbone) {
+  'backbone',
+  // add custom js
+  'app/app',
+  'bootstrap'
+  ], function (Backbone, App, bootstrap) {
     'use strict';
 
-    console.log(Backbone);
+    App.initialize();
+    App.displayTime();
+
+    console.log(App);
   });
