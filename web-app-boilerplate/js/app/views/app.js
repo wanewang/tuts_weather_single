@@ -4,7 +4,7 @@ define([
   'backbone',
   'app/views/dash',
   'app/views/about'
-], function ($, _, Backbone, DashView, AboutView) {
+], function($, _, Backbone, DashView, AboutView) {
 
   'use strict';
 
@@ -12,15 +12,15 @@ define([
     id: 'app-view',
 
     html: [
-          '<div class="navbar navbar-default">',
-            '<a class="navbar-brand" href="#">Weather Watcher</a>',
-            '<ul class="nav navbar-nav">',
-              '<li id="nav-dash"><a href="#dash">Dashboard</a></li>',
-              '<li id="nav-about"><a href="#about">About</a></li>',
-            '</ul>',
-          '</div>',
-          '<div id="content"></div>'
-      ].join(''),
+      '<div class="navbar navbar-default">',
+      '<a class="navbar-brand" href="#">Weather Watcher</a>',
+      '<ul class="nav navbar-nav">',
+      '<li id="nav-dash"><a href="#dash">Dashboard</a></li>',
+      '<li id="nav-about"><a href="#about">About</a></li>',
+      '</ul>',
+      '</div>',
+      '<div id="content"></div>'
+    ].join(''),
 
     events: {
 
@@ -46,8 +46,10 @@ define([
     },
 
     setPage: function(page) {
+      this.$('.nav li').removeClass('active');
       this.$('.page-view').hide();
-      this.$('#page-'+page).show();
+      this.$('#page-' + page).show();
+      this.$('#nav-' + page).addClass('active');
     }
   });
 
