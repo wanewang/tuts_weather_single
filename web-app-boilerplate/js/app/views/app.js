@@ -10,7 +10,7 @@ define([
     id: 'app-view',
 
     html: [
-          '<div class="navbar">',
+          '<div class="navbar navbar-default">',
             '<a class="navbar-brand" href="#">Weather Watcher</a>',
             '<ul class="nav navbar-nav">',
               '<li id="nav-dash"><a href="#">Dashboard</a></li>',
@@ -18,11 +18,25 @@ define([
             '</ul>',
           '</div>',
           '<div id="content"></div>'
-     ].join(''),
+      ].join(''),
 
-     initialize: function() {
-        this.$el.append(this.html);
-     }
+    events: {
+      'click #nav-dash': 'onNavDash',
+      'click #nav-about': 'onNavAbout'
+    },
+
+    initialize: function() {
+      this.$el.append(this.html);
+    },
+
+    onNavAbout: function(e) {
+      alert('About button clicked');
+    },
+
+    onNavDash: function(e) {
+      alert('Dash button clicked');
+    }
+
   });
 
   return AppView;
